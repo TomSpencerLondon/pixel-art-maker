@@ -13,7 +13,7 @@ function makeGrid(height, width) {
     for(let j = 0; j < width; j++){
       grid += '<td></td>'; 
     }
-      grid += '</td>'
+      grid += '</tr>'
   }
   pixelCanvas.html(grid); 
   pixelCanvas.css("background-color", "#ffffff");
