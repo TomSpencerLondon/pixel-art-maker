@@ -5,13 +5,8 @@
 $(window).ready(function () {
 
 function makeGrid(height, width) {
-
   let pixelCanvas, grid; 
   pixelCanvas = $('#pixelCanvas'); 
-
-  if(pixelCanvas.children().length) {
-    pixelCanvas.empty(); 
-  }
 
   for(let i = 0; i < height; i++){
     grid += '<tr>'; 
@@ -25,11 +20,19 @@ function makeGrid(height, width) {
 
 }
 	$('#sizePicker').click(function(evt) {
+    $('tr').remove();
     let height, width;
     width = $('#inputWidth').val();
     height = $('#inputHeight').val();
+    console.log(evt.target);
 		evt.preventDefault();
-		makeGrid(height, width);
+    makeGrid(height, width);
+  });
+
+  $('#pixelCanvas').click(function(event) {
+    console.log("hello-1-1");
+    let color = $('#colorPicker').val(); 
+    $(event.target).css("background-color", color);  
   });
   
 });
