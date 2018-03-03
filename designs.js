@@ -1,9 +1,5 @@
-// Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
 $(window).ready(function () {
-
+//Create the grid
   function makeGrid(height, width) {
     
     for(let i = 0; i < height; i++){
@@ -13,20 +9,21 @@ $(window).ready(function () {
       }
       
     }
+    //Add event clicker for each pixel
     $('.cells').click(function(event) {
       let color = $('#colorPicker').val(); 
       event.preventDefault(); 
       $(event.target).css('background-color', color); 
     });
   }
-
-	$('#sizePicker').submit(function(evt) {
-    $('tr').remove();
-    let height, width;
-    width = $('#inputWidth').val();
-    height = $('#inputHeight').val();
-		evt.preventDefault();
-    makeGrid(height, width);
-  });
+//Event picker for the sizePicker
+$('#sizePicker').submit(function(evt) {
+  $('tr').remove();
+  let height, width;
+  width = $('#inputWidth').val();
+  height = $('#inputHeight').val();
+  evt.preventDefault();
+  makeGrid(height, width);
+});
 
 });
